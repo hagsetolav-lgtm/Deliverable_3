@@ -18,10 +18,27 @@ class Character:
         self.hp_max = hp_max
         self.damage = damage
 
-    def attack(self, target) -> None:
-        """Attack and deal damage to target character"""
-        target._hp -= self.damage
-        target._hp = max(target._hp, 0)  # Target hp cannot end up lower than 0
+    def take_damage(self, amount:int) -> None:
+        """Reduce the character's HP by a specified amount, down to a minimum of 0."""
+        if amount < 0:
+            raise ValueError("Damage amount cannot be negative.")
+        self._hp = max(0, self._hp - amount)
+
+    def heal(self, amount: int) -> None:
+        """Restore the chracter's HP by a spexified amount, up to the maximum HP."""
+        if amount < 0:
+            raise ValueError("Heal amount cannot be negative.")
+        self._hp = min(self.hp_max, self._hp + amount)
+
+    def attack(self, target: "Character") -> None:
+        """Attack and deal damage to the target character."""
+        target.take_damage(self.damage)
+
+    @property
+    def is_alive(self) -> bool:
+        """Return True while the character is alive (HP > 0), otherwise False."""
+        return self._hp > 0
+
 
     def introduce(self) -> None:
         """Creates string that introduces character"""

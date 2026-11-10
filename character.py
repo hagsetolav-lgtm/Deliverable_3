@@ -1,22 +1,24 @@
 # Object-oriented game simulator
 # Turid Torheim, NMBU, 2026
 
+from items import Weapon
+
 class Character:
     """Represents a character in the RPG"""
 
-    def __init__(self, name: str, hp_max: int = 100, damage: int = 10) -> None:
-        """
-        Initialise the Character
-
-        Args:
-            name (str): The name of the character.
-            hp_max (int): Max hit points (default = 100)
-            damage (int): Damage delt when character attacks (default = 10)
-        """
+    def __init__(
+        self, 
+        name: str,
+        hp_max: int = 100,
+        damage: int = 10,
+        weapon: Weapon | None = None,
+    ) -> None:
+        """Create a character with  full HP, base damage and an optional weapon."""
         self.name = name
-        self._hp = hp_max  # Note: _hp indicated private attribute
+        self._hp = hp_max
         self.hp_max = hp_max
         self.damage = damage
+        self.weapon = weapon
 
     def take_damage(self, amount:int) -> None:
         """Reduce the character's HP by a specified amount, down to a minimum of 0."""
@@ -31,8 +33,13 @@ class Character:
         self._hp = min(self.hp_max, self._hp + amount)
 
     def attack(self, target: "Character") -> None:
-        """Attack and deal damage to the target character."""
-        target.take_damage(self.damage)
+        """Attack another character using weapon damage or unarmed base damage."""
+        if self.weapon is None:
+            damage = self.damage
+        else:
+            damage = self.weapon.roll_damage()
+
+        target.take_damage(damage)
 
     @property
     def is_alive(self) -> bool:

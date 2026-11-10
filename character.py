@@ -14,6 +14,8 @@ class Character:
         weapon: Weapon | None = None,
     ) -> None:
         """Create a character with  full HP, base damage and an optional weapon."""
+        if hp_max < 0:
+            raise ValueError("Maximum HP cannot be negative.")
         self.name = name
         self._hp = hp_max
         self.hp_max = hp_max

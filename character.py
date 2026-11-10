@@ -29,7 +29,7 @@ class Character:
         self._hp = max(0, self._hp - amount)
 
     def heal(self, amount: int) -> None:
-        """Restore the chracter's HP by a spexified amount, up to the maximum HP."""
+        """Restore the character's HP by a specified amount, up to the maximum HP."""
         if amount < 0:
             raise ValueError("Heal amount cannot be negative.")
         self._hp = min(self.hp_max, self._hp + amount)
@@ -55,7 +55,7 @@ class Character:
 
     def __repr__(self) -> str:
         """Representation of character object"""
-        return f"<Character name={self.name} hp={self.hp} damage={self.damage}>)"
+        return f"<Character name={self.name} hp={self.hp} damage={self.damage}>"
 
     def __str__(self) -> str:
         """String representation of character object"""

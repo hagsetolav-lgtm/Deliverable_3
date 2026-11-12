@@ -1,0 +1,14 @@
+* f94aa4d - Olav Hagset, 4 minutes ago : added requirements.txt
+* 575d6f7 - Olav Hagset, 2 hours ago : added git url
+* eb7cb00 - Olav Hagset, 2 days ago : readme 2
+* 51ee139 - Olav Hagset, 2 days ago : readme
+* fdd63fa - Olav Hagset, 2 days ago : grammar
+* 8bee247 - Olav Hagset, 2 days ago : fix in dice roll
+* b9868b8 - Olav Hagset, 2 days ago : fix in character
+* b656389 - Olav Hagset, 2 days ago : Task 5 fin, added battle class
+* fcb8db5 - Olav Hagset, 2 days ago : Task 4 fin, added warrior and mage
+* e7d203b - Olav Hagset, 2 days ago : Task 3 fin, weapon class added
+* 4e3c094 - Olav Hagset, 2 days ago : Task 2 fin, dice class and random rolls
+* fc34ce6 - Olav Hagset, 2 days ago : Task 1 fin, added damage, healing and alive status
+* bcf0db8 - Olav Hagset, 2 days ago : Added character class
+* 9f296db - Olav Hagset, 6 days ago : Initial commit
